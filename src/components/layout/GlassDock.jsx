@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Home, BookOpen, Trophy, BarChart2, Settings } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { cn } from '../../utils/cn';
 
 const navItems = [
-  { id: 'home', icon: Home, label: 'Trang chủ' },
-  { id: 'practice', icon: BookOpen, label: 'Luyện tập' },
-  { id: 'test', icon: Trophy, label: 'Thi thử' },
-  { id: 'analytics', icon: BarChart2, label: 'Thống kê' },
-  { id: 'settings', icon: Settings, label: 'Cài đặt' },
+  { id: '/', icon: Home, label: 'Trang chủ' },
+  { id: '/practice', icon: BookOpen, label: 'Luyện tập' },
+  { id: '/test', icon: Trophy, label: 'Thi thử' },
+  { id: '/analytics', icon: BarChart2, label: 'Thống kê' },
+  { id: '/settings', icon: Settings, label: 'Cài đặt' },
 ];
 
 export default function GlassDock() {
-  const [activeItem, setActiveItem] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40">
@@ -25,12 +27,12 @@ export default function GlassDock() {
       >
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = activeItem === item.id;
+          const isActive = location.pathname === item.id;
           
           return (
             <motion.button
               key={item.id}
-              onClick={() => setActiveItem(item.id)}
+              onClick={() => navigate(item.id)}
               className={cn(
                 "relative group flex items-center justify-center w-12 h-12 rounded-xl transition-colors",
                 isActive ? "bg-white/10 text-white" : "text-slate-400 hover:text-white hover:bg-white/5"
