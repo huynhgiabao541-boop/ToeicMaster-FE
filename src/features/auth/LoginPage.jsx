@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Lock, Sparkles, ArrowRight, Github, Chrome } from 'lucide-react';
+import { Mail, Lock, Sparkles, ArrowRight, Code, Globe } from 'lucide-react';
 
 export default function LoginPage() {
     const [formData, setFormData] = useState({ email: '', password: '' });
@@ -99,11 +99,11 @@ export default function LoginPage() {
                 {/* Social Login Buttons */}
                 <div className="grid grid-cols-2 gap-3">
                     <button className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-xs font-medium">
-                        <Chrome className="w-4 h-4 text-slate-300" />
+                        <Globe className="w-4 h-4 text-slate-300" />
                         <span>Google</span>
                     </button>
                     <button className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-xs font-medium">
-                        <Github className="w-4 h-4 text-slate-300" />
+                        <Code className="w-4 h-4 text-slate-300" />
                         <span>GitHub</span>
                     </button>
                 </div>
